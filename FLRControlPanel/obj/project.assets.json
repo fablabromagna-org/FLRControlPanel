@@ -390,11 +390,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/maurizio/Documents/ProgettiCondivisi/FLRControlPanel/FLRControlPanel/FLRControlPanel.csproj",
+      "projectUniqueName": "/Users/maurizio/Documents/ProgettiCondivisi/pubblicati/flrcontrolpanel/FLRControlPanel/FLRControlPanel.csproj",
       "projectName": "FLRControlPanel",
-      "projectPath": "/Users/maurizio/Documents/ProgettiCondivisi/FLRControlPanel/FLRControlPanel/FLRControlPanel.csproj",
+      "projectPath": "/Users/maurizio/Documents/ProgettiCondivisi/pubblicati/flrcontrolpanel/FLRControlPanel/FLRControlPanel.csproj",
       "packagesPath": "/Users/maurizio/.nuget/packages/",
-      "outputPath": "/Users/maurizio/Documents/ProgettiCondivisi/FLRControlPanel/FLRControlPanel/obj",
+      "outputPath": "/Users/maurizio/Documents/ProgettiCondivisi/pubblicati/flrcontrolpanel/FLRControlPanel/obj",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"

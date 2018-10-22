@@ -1,0 +1,10 @@
+﻿<Properties StartupConfiguration="{B893BD54-D6A0-4649-A793-34FCF0D3A805}|Default">
+  <MonoDevelop.Ide.Workbench />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.FLRControlPanel.Android PreferredExecutionTarget="Android.mauriapi21" />
+  <MultiItemStartupConfigurations />
+</Properties>
