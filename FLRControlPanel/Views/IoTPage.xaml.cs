@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Net.Http;
+using System.Runtime.CompilerServices;
 using Newtonsoft.Json.Linq;
 using Xamarin.Forms;
 
@@ -8,16 +10,20 @@ namespace FLRControlPanel.Views
 {
     public partial class IoTPage : ContentPage
     {
+        public MioValore Temperatura { get; set; }
         public IoTPage()
         {
             InitializeComponent();
-            slider.Value = 100;
+
+            Temperatura = new MioValore();
+            slider.Value = Temperatura.Value;
         }
 
         private void slider_ValueChanged(object sender, ValueChangedEventArgs e)
         {
             //lastTemperature = e.NewValue;
-            slider.Value = Math.Round(e.NewValue, 2);
+            Temperatura.Value = Math.Round(e.NewValue, 2);
+            txtTest.Text = Temperatura.Value.ToString();
         }
 
         async void Load(object sender, System.EventArgs e)
@@ -51,13 +57,18 @@ namespace FLRControlPanel.Views
                     //    rss["with"][0]["content"]["temperatura"].ToString(), 
                     //    System.Globalization.NumberStyles.Any);
 
-                    double valore;
+                    // Prendo il valore in formato stringa
                     string strValore = rss["with"][0]["content"]["temperatura"].ToString();
 
+                    // lo converto in double e lo arrotondo
+                    double valore;
                     strValore = strValore.Replace(',', '.');
                     Double.TryParse(strValore, out valore);
-                    valore = Math.Round(valore,2);
-                    slider.Value = valore;
+
+                    // lo assegno
+                    Temperatura.Value = Math.Round(valore, 2);
+                    txtTest.Text = Temperatura.Value.ToString();
+                    slider.Value = Temperatura.Value;
 
                     lblErrori.BackgroundColor = Color.Transparent;
                 }
@@ -72,8 +83,10 @@ namespace FLRControlPanel.Views
                 lblErrori.Text = Err.Message;
                 lblErrori.BackgroundColor = Color.Red;
             }
-
-            slider.IsEnabled = true;
+            finally
+            {
+                slider.IsEnabled = true;
+            }
         }
 
         async void Save(object sender, System.EventArgs e)
@@ -86,7 +99,7 @@ namespace FLRControlPanel.Views
                 // https://dweet.io/dweet/for/lab225?temperatura=100
 
                 HttpClient client = new HttpClient();
-                var r = await client.GetAsync($"https://dweet.io/dweet/for/lab226?temperatura={slider.Value}");
+                var r = await client.GetAsync($"https://dweet.io/dweet/for/lab226?temperatura={Temperatura.Value}");
                 string result = await r.Content.ReadAsStringAsync();
 
                 JObject rss = JObject.Parse(result);
@@ -108,10 +121,45 @@ namespace FLRControlPanel.Views
                 // slider.Value = (double)rss["with"]["content"]["temperatura"];
                 lblErrori.Text = "";
             }
-            catch (Exception Err) { lblErrori.Text = Err.Message; }
+            catch (Exception Err)
+            {
+                lblErrori.Text = Err.Message;
+            }
+            finally
+            {
+                slider.IsEnabled = true;
+            }
+        }
+    }
 
-            slider.IsEnabled = true;
+    public class MioValore : INotifyPropertyChanged
+    {
+        // These fields hold the values for the public properties.  
+        private double value = 0.0;
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        // This method is called by the Set accessor of each property.  
+        // The CallerMemberName attribute that is applied to the optional propertyName  
+        // parameter causes the property name of the caller to be substituted as an argument.  
+        private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
+        public double Value
+        {
+            get
+            {
+                return this.value;
+            }
+
+            set
+            {
+                //if (Math.Abs(value - this.value) > EPSILON)
+                this.value = value;
+                NotifyPropertyChanged();
+            }
+        }
     }
 }

@@ -1,5 +1,13 @@
-﻿<Properties StartupConfiguration="{B893BD54-D6A0-4649-A793-34FCF0D3A805}|Default">
-  <MonoDevelop.Ide.Workbench />
+﻿<Properties StartupConfiguration="{F4ACE0E5-EC3B-4D38-85C0-D8D1B6AA82BD}|Default" GitUserInfo="UsingGIT">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Stato di flrcontrolpanel">
+    <Files>
+      <File FileName="FLRControlPanel/Views/IoTPage.xaml.cs" Line="26" Column="57" />
+      <File FileName="FLRControlPanel/Views/IoTPage.xaml" Line="18" Column="53" />
+      <File FileName="FLRControlPanel/Views/MainPage.xaml.cs" Line="14" Column="1" />
+      <File FileName="Stato di flrcontrolpanel" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.FLRControlPanel.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.577C9535-FE17-47CF-A658-9178DA79CC3A" />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />

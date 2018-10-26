@@ -1,11 +1,22 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="FLRControlPanel.Views.IoTPage">
     <ContentPage.Content>
     <StackLayout>
+
         <!-- Place new controls here -->
+        <!-- 
         <Label x:Name="txtTest" 
             BindingContext="{x:Reference Name=slider}"
             Rotation="{Binding Path=Value}"  Text="{Binding Path=Value}" 
+            HorizontalOptions="Center"
+            VerticalOptions="CenterAndExpand" 
+            FontSize="90"    
+        /> 
+        -->
+            
+        <Label x:Name="txtTest" 
+            Rotation="{Binding Path=Temperatura.Valu}"  
+            Text="{Binding Path=Temperatura.Value}" 
             HorizontalOptions="Center"
             VerticalOptions="CenterAndExpand" 
             FontSize="90"    
