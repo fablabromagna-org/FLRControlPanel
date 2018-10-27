@@ -1,3 +1,3 @@
 # FLRControlPanel
 
-Xamarin mobile app for Android and iOS.
+Xamarin Form mobile app (Android and iOS) for Dweet with ODroid client.
