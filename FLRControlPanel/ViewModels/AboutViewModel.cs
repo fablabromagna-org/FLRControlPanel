@@ -10,8 +10,13 @@ namespace FLRControlPanel.ViewModels
         public AboutViewModel()
         {
             Title = "About";
+            AppName = "FLR Control Panel";
 
-            OpenWebCommand = new Command(() => Device.OpenUri(new Uri("https://xamarin.com/platform")));
+            // Questo è un comando che lato XAML può essere bindato in questo modo
+            // <Button Text="Learn more" Command="{Binding OpenWebCommand}"/>
+            OpenWebCommand = new Command( () => 
+                Device.OpenUri ( new Uri("https://xamarin.com/platform"))
+            );
         }
 
         public ICommand OpenWebCommand { get; }

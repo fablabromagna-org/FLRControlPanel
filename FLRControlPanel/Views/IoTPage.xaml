@@ -1,33 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="FLRControlPanel.Views.IoTPage">
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    x:Class="FLRControlPanel.Views.IoTPage">
+    
     <ContentPage.Content>
-    <StackLayout>
-
-        <!-- Place new controls here -->
-        <!-- 
-        <Label x:Name="txtTest" 
-            BindingContext="{x:Reference Name=slider}"
-            Rotation="{Binding Path=Value}"  Text="{Binding Path=Value}" 
-            HorizontalOptions="Center"
-            VerticalOptions="CenterAndExpand" 
-            FontSize="90"    
-        /> 
-        -->
-            
-        <Label x:Name="txtTest" 
-            Rotation="{Binding Path=Temperatura.Valu}"  
-            Text="{Binding Path=Temperatura.Value}" 
-            HorizontalOptions="Center"
-            VerticalOptions="CenterAndExpand" 
-            FontSize="90"    
-        />
-        <ProgressBar x:Name="progressBar"/>
-        <Slider x:Name="slider"  Minimum="0" Maximum="180" ValueChanged="slider_ValueChanged"/>
-        <Button x:Name="btnGetdata" Clicked="Load" 
-                Text="Load" BackgroundColor="Green" TextColor="White"/>
-        <Button x:Name="btnSetdata" Clicked="Save" 
-                Text="Save" BackgroundColor="Green" TextColor="Yellow"/>
-        <Label x:Name="lblErrori" BackgroundColor="Transparent" TextColor="White"></Label>
-    </StackLayout>
+        <StackLayout>
+            <Label x:Name="txtTest" 
+                Rotation="{Binding Path=Temperatura.Value}"  
+                Text="{Binding Path=Temperatura.Value}" 
+                HorizontalOptions="Center"
+                VerticalOptions="CenterAndExpand" 
+                FontSize="90"    
+            />
+            <ProgressBar x:Name="progressBar"/>
+            <Button x:Name="btnGetdata" Clicked="Load"/> 
+            <Slider x:Name="slider"  
+                    Minimum="0" Maximum="180" 
+                    ValueChanged="slider_ValueChanged"
+                    BackgroundColor="Green" />
+            <Button x:Name="btnSetdata" Clicked="Save" 
+                    Text="Save" BackgroundColor="Green" TextColor="Yellow"/>
+            <Label x:Name="lblErrori" BackgroundColor="Transparent" TextColor="White"></Label>
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>

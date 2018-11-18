@@ -11,7 +11,7 @@ namespace FLRControlPanel.Views
     public partial class IoTPage : ContentPage
     {
         public MioValore Temperatura { get; set; }
-        public IoTPage()
+        public IoTPage() 
         {
             InitializeComponent();
 

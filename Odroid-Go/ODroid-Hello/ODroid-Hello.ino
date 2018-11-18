@@ -22,18 +22,55 @@ WiFiMulti wifiMulti;
 
     GO.begin();
 
-    GO.lcd.setFont(&FreeSerifBold24pt7b);
-    GO.lcd.setTextSize(1);
-    GO.lcd.setCursor(10, 130);
-    GO.lcd.println("FabLab!!!");
-  
-    GO.Speaker.setVolume(2);
-    GO.Speaker.playMusic(m5stack_startup_music, 25000);
-    GO.Speaker.setVolume(0);
+    GO.lcd.clearDisplay();
+    //GO.lcd.setFont(&FreeSerifBold24pt7b);
+    //GO.lcd.setFont(&FreeSans12pt7b);
+    GO.lcd.setFont(&FreeSerif12pt7b);
     
-    wifiMulti.addAP("SSID", "pwd");
+    GO.lcd.setTextSize(0);
+    GO.lcd.println("");
+    GO.lcd.println("FabLab!!!");
+    GO.update();
+  
+    //GO.Speaker.setVolume(2);
+    //GO.Speaker.playMusic(m5stack_startup_music, 25000);
+    //GO.Speaker.setVolume(0);
+
+    wifiMulti.addAP("iPhone di Maurizio", "fablabasl2018");
+    //wifiMulti.addAP("NuovoBuscone", "Prova1234");
+
+    GO.lcd.print( "mi connetto..." );
+    GO.update();
+
+    while( (wifiMulti.run() != WL_CONNECTED) ) {
+      delay(1000);
+      GO.lcd.print( "." );
+      GO.update();
+      
+      if(GO.BtnA.wasPressed()) 
+        return;
+    
+    }
+    
+    GO.lcd.clearDisplay();
+    GO.lcd.println("");
+    GO.lcd.println("WiFi connected");
+    GO.lcd.println(WiFi.localIP());
+
+    GO.lcd.println("");
+    GO.lcd.println("Premi pulsante A per partire.");
+    GO.update();
+
+    while(!GO.BtnA.wasPressed()) {
+      GO.update();
+    }
+
+    
+    while(GO.BtnA.wasPressed()) {
+      GO.update();
+    }
 }
- 
+
 void loop() {
 
     // wait for WiFi connection
@@ -88,17 +125,17 @@ void loop() {
   
     if(GO.BtnA.wasPressed()) {
       GO.lcd.printf("wasPressed: A \r\n");
-      GO.Speaker.beep();
+      //GO.Speaker.beep();
     }
    
     if(GO.BtnB.wasPressed()) {
       GO.lcd.printf("wasPressed: B \r\n");
-      GO.Speaker.tone(3000, 200);
+      //GO.Speaker.tone(3000, 200);
     }
    
     if(GO.BtnStart.wasPressed()) {
       GO.lcd.printf("wasPressed: Start \r\n");
-      GO.Speaker.playMusic(m5stack_startup_music, 25000);
+      //GO.Speaker.playMusic(m5stack_startup_music, 25000);
     }
    
     GO.update();
