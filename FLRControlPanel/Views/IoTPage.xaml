@@ -14,11 +14,12 @@
                 FontSize="90"    
             />
             <ProgressBar x:Name="progressBar"/>
-            <Button x:Name="btnGetdata" Clicked="Load"/> 
             <Slider x:Name="slider"  
                     Minimum="0" Maximum="180" 
                     ValueChanged="slider_ValueChanged"
                     BackgroundColor="Green" />
+            <Button x:Name="btnGetdata" Clicked="Load"
+                    Text="Load" BackgroundColor="Green" TextColor="Yellow"/>
             <Button x:Name="btnSetdata" Clicked="Save" 
                     Text="Save" BackgroundColor="Green" TextColor="Yellow"/>
             <Label x:Name="lblErrori" BackgroundColor="Transparent" TextColor="White"></Label>
