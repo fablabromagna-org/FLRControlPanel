@@ -15,7 +15,7 @@ namespace FLRControlPanel.ViewModels
             // Questo è un comando che lato XAML può essere bindato in questo modo
             // <Button Text="Learn more" Command="{Binding OpenWebCommand}"/>
             OpenWebCommand = new Command( () => 
-                Device.OpenUri ( new Uri("https://xamarin.com/platform"))
+                Device.OpenUri ( new Uri("http://www.fablabromagna.org"))
             );
         }
 

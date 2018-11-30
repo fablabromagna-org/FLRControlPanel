@@ -22,7 +22,7 @@ namespace FLRControlPanel.Views
         private void slider_ValueChanged(object sender, ValueChangedEventArgs e)
         {
             //lastTemperature = e.NewValue;
-            Temperatura.Value = Math.Round(e.NewValue, 2);
+            Temperatura.Value = Math.Round(e.NewValue, 0);
             txtTest.Text = Temperatura.Value.ToString();
         }
 
@@ -62,11 +62,11 @@ namespace FLRControlPanel.Views
 
                     // lo converto in double e lo arrotondo
                     double valore;
-                    strValore = strValore.Replace(',', '.');
+                    //strValore = strValore.Replace(',', '.');
                     Double.TryParse(strValore, out valore);
 
                     // lo assegno
-                    Temperatura.Value = Math.Round(valore, 2);
+                    Temperatura.Value = Math.Round(valore, 0);
                     txtTest.Text = Temperatura.Value.ToString();
                     slider.Value = Temperatura.Value;
 
